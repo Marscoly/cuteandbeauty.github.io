@@ -28,7 +28,9 @@
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
+        overflow-x: scroll;
         overflow-y: hidden;
+        scrollbar-width: none;
       }
 
       .gallery-row {
@@ -38,12 +40,10 @@
         width: 100%;
         padding-right: 20px;
         box-sizing: border-box;
-        overflow-x: scroll;
-        scrollbar-width: none;
       }
 
-      .gallery-row:first-child {
-        margin-bottom: 0;
+      .gallery-row:nth-child(2) {
+        margin-bottom: 0px;
       }
 
       .gallery-row img {
@@ -58,7 +58,7 @@
       }
 
       ::-webkit-scrollbar {
-        display: none;
+        width: 0;
       }
     </style>
   </head>
