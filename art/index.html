@@ -28,10 +28,9 @@
         margin: 0 auto;
       }
 
-      .gallery-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px; /* 與第一排相同的值 */
+      .gallery-row + .gallery-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
       .gallery-row img {
         width: calc(33.33% - 10px);
