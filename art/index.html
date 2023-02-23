@@ -2,16 +2,24 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Photo Gallery</title>
+    <title>網頁標題</title>
     <style>
-      /* Masonry 布局 CSS */
+      /* 設定網頁背景圖片 */
+      body {
+        background-image: url("images/background.jpg");
+        background-size: cover;
+      }
+      
+      h1 {
+        text-align: center;
+      }
+      
       .grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         grid-gap: 10px;
       }
       
-      /* 調整圖片的大小和邊框 */
       img {
         max-width: 100%;
         border: 1px solid #ccc;
