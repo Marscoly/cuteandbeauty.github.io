@@ -2,10 +2,44 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>貓星人雨水瓶女</title>
+    <title>My Photo Gallery</title>
+    <style>
+      /* Masonry 布局 CSS */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 10px;
+      }
+      
+      /* 調整圖片的大小和邊框 */
+      img {
+        max-width: 100%;
+        border: 1px solid #ccc;
+      }
+    </style>
   </head>
   <body>
-    <h1>歡迎來到我的網站！</h1>
-    <p>這是一個簡單的 HTML 網頁。</p>
+    <h1>喵星人與水瓶女</h1>
+    <p>這是一個Midjourney創作的藝術空間。</p>
+    <div class="grid">
+      <!-- HTML 程式碼 (以圖片為例) -->
+      <img src="https://github.com/Marscoly/Midjourney/blob/main/CAT.jpg.jpg">
+      <img src="https://github.com/Marscoly/Midjourney/blob/main/CAT-2.jpg.jpg">
+      <img src="https://github.com/Marscoly/Midjourney/blob/main/CAT-3.jpg.jpg">
+      <img src="https://github.com/Marscoly/Midjourney/blob/main/GIRL.jpg.jpg">
+      <img src="https://github.com/Marscoly/Midjourney/blob/main/GIRL-2.jpg.jpg">
+      <img src="https://github.com/Marscoly/Midjourney/blob/main/GIRL-3.jpg.jpg">
+    </div>
+    <script>
+      var images = document.getElementsByTagName("img");
+      for (var i = 0; i < images.length; i++) {
+        images[i].addEventListener("mouseover", function() {
+          this.style.transform = "scale(2)";
+        });
+        images[i].addEventListener("mouseout", function() {
+          this.style.transform = "scale(1)";
+        });
+      }
+    </script>
   </body>
 </html>
