@@ -5,10 +5,10 @@
     <title>Cats&Ladies</title>
     <style>
       /* 設定網頁背景圖片 */
-     body {
-  background-image: url("images/backgroung-3.jpg");
-  background-size: cover;
-  background-position: center;
+      body {
+        background-image: url("images/backgroung-3.jpg");
+        background-size: cover;
+        background-position: center;
         font-family: Arial, sans-serif;
         font-size: 20px;
         color: #FFA500;
@@ -23,19 +23,19 @@
       }
       
       .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 20px;
-  justify-content: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 20px;
+        justify-content: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
 
-@media screen and (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+      @media screen and (min-width: 768px) {
+        .grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
       
       img {
         max-width: 100%;
@@ -48,20 +48,56 @@
         position: relative;
         transform: scale(1.5);
       }
+
+      /* 新增的 CSS */
+      .gallery-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .gallery-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .gallery-row img {
+        max-width: 100%;
+        border: 1px solid #ccc;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .gallery-row img:hover {
+        z-index: 999;
+        position: relative;
+        transform: scale(1.5);
+      }
     </style>
   </head>
   <body>
     <h1>喵星人與水瓶女</h1>
     <p>這是一個Midjourney創作的藝術空間。</p>
-    <div class="grid">
-      <!-- HTML 程式碼 (以圖片為例) -->
-      <img src="images/CAT.jpg">
-      <img src="images/CAT-2.jpg">
-      <img src="images/CAT-3.jpg">
-      <img src="images/GIRL.jpg">
-      <img src="images/GIRL-2.jpg">
-      <img src="images/GIRL-4.jpg">
+
+    <!-- 修改後的 HTML 程式碼 -->
+    <div class="gallery">
+      <div class="gallery-wrapper">
+        <div class="gallery-row">
+          <img src="images/CAT.jpg">
+          <img src="images/CAT-2.jpg">
+          <img src="images/CAT-3.jpg">
+        </div>
+        <div class="gallery-row">
+          <img src="images/GIRL.jpg">
+          <img src="images/GIRL-2.jpg">
+          <img src="images/GIRL-4.jpg">
+          <img src="images/GIRL-3.jpg">
+          <img src="images/GIRL-5.jpg">
+          <img src="images/GIRL-6.jpg">
+        </div>
+      </div>
     </div>
+
     <script>
       var images = document.getElementsByTagName("img");
       for (var i = 0; i < images.length; i++) {
