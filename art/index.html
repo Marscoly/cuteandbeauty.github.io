@@ -12,30 +12,31 @@
         font-size: 16px;
         color: #333;
       }
-
+      
       h1 {
+        text-align: center;
         font-family: Georgia, serif;
         font-size: 36px;
         font-weight: bold;
-        text-align: center;
         color: lightyellow;
       }
-
+      
       .grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         grid-gap: 10px;
       }
-
+      
       img {
         max-width: 100%;
         border: 1px solid #ccc;
+        transition: all 0.3s ease-in-out;
       }
 
-      img:hover {
-        transform: scale(1.5);
-        z-index: 1;
+      .zoom {
+        z-index: 999;
         position: relative;
+        transform: scale(1.5);
       }
     </style>
   </head>
@@ -51,5 +52,16 @@
       <img src="images/GIRL-2.jpg">
       <img src="images/GIRL-3.jpg">
     </div>
+    <script>
+      var images = document.getElementsByTagName("img");
+      for (var i = 0; i < images.length; i++) {
+        images[i].addEventListener("mouseover", function() {
+          this.classList.add("zoom");
+        });
+        images[i].addEventListener("mouseout", function() {
+          this.classList.remove("zoom");
+        });
+      }
+    </script>
   </body>
 </html>
