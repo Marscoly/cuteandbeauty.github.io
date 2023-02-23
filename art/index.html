@@ -30,7 +30,54 @@
         flex-wrap: wrap;
         scrollbar-width: none;
       }
+      .gallery-row {
+  position: relative; /* 新增 */
+}
 
+.gallery-row .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0,0,0,0.3);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.gallery-row .scroll-btn:hover {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.gallery-row .scroll-btn.left {
+  left: 0;
+  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
+  background-size: cover;
+}
+
+.gallery-row .scroll-btn.right {
+  right: 0;
+  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
+  background-size: cover;
+}
+
+.gallery-row .scroll-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* 修改 img 的 margin-left 和 margin-right */
+.gallery-row img {
+  width: calc(33.33% - 10px);
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in-out;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+}
       .gallery-row {
         display: flex;
         justify-content: flex-start; /* 修改成 flex-start */
@@ -72,18 +119,21 @@
           <img src="images/CAT.jpg">
           <img src="images/CAT-2.jpg">
           <img src="images/CAT-3.jpg">
+          <button class="scroll-btn right"></button>
         </div>
         <div class="gallery-row">
           <img src="images/GIRL.jpg">
           <img src="images/GIRL-2.jpg">
           <img src="images/GIRL-4.jpg">
           <img src="images/GIRL-4.jpg">
+          <button class="scroll-btn right"></button>
         </div>
         <div class="gallery-row">
           <img src="images/GIRL-3.jpg">
           <img src="images/GIRL-5.jpg">
           <img src="images/GIRL-6.jpg">
           <img src="images/GIRL-4.jpg">
+          <button class="scroll-btn right"></button>
         </div>
       </div>
     </div>
