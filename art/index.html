@@ -28,23 +28,29 @@
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
-        overflow-x: scroll;
-        overflow-y: hidden;
+        overflow-x: scroll; /* 修改成 scroll */
+        overflow-y: hidden; /* 刪除 y 方向的滾動條 */
         scrollbar-width: none;
       }
 
-      .gallery-row + .gallery-row {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-      .gallery-row:nth-child(2) {
-        margin-bottom: 0px;
+      .gallery-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        width: 100%;
+        padding-right: 20px;
+        box-sizing: border-box;
+      }
+
+      .gallery-row:first-of-type { /* 只選取第一行 */
+        margin-bottom: 0; /* 刪除 margin-bottom */
       }
 
       .gallery-row img {
         width: calc(33.33% - 10px);
         border: 1px solid #ccc;
         transition: all 0.3s ease-in-out;
+        margin-right: 20px; /* 修改成 margin-right，與第一行相同 */
         margin-bottom: 20px;
       }
 
@@ -71,6 +77,8 @@
           <img src="images/GIRL.jpg">
           <img src="images/GIRL-2.jpg">
           <img src="images/GIRL-4.jpg">
+        </div>
+        <div class="gallery-row">
           <img src="images/GIRL-3.jpg">
           <img src="images/GIRL-5.jpg">
           <img src="images/GIRL-6.jpg">
