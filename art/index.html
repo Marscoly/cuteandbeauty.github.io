@@ -27,15 +27,15 @@
         max-width: 800px;
         margin: 0 auto;
         display: flex;
-        flex-wrap: nowrap; /* 修改成 nowrap，讓每行圖片不換行 */
-        overflow-x: auto; /* 修改成 auto，讓有需要才出現滾動條 */
-        overflow-y: hidden; /* 刪除 y 方向的滾動條 */
+        flex-wrap: wrap;
         scrollbar-width: none;
       }
 
       .gallery-row {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start; /* 修改成 flex-start */
+        overflow-x: scroll; /* 新增滾動條 */
+        overflow-y: hidden; /* 刪除 y 方向的滾動條 */
         margin-bottom: 20px;
         width: 100%;
         padding-right: 20px;
