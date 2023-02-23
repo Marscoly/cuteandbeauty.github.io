@@ -26,42 +26,39 @@
         width: 100%;
         max-width: 800px;
         margin: 0 auto;
-        overflow-x: auto;
       }
 
       .gallery-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        white-space: nowrap;
-      }
-
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; /* 與第一排相同的值 */
+}
       .gallery-row img {
         width: calc(33.33% - 10px);
         border: 1px solid #ccc;
         transition: all 0.3s ease-in-out;
       }
 
-      .zoom {
-        transform: scale(1.5);
+      .gallery-scroll {
+        overflow-x: auto;
+        margin-bottom: 20px;
       }
 
-      ::-webkit-scrollbar {
-        width: 10px;
+      .gallery-scroll::-webkit-scrollbar {
         height: 10px;
       }
 
-      ::-webkit-scrollbar-track {
-        background-color: #F5F5F5;
-      }
-
-      ::-webkit-scrollbar-thumb {
+      .gallery-scroll::-webkit-scrollbar-thumb {
         background-color: #ccc;
         border-radius: 5px;
       }
 
-      ::-webkit-scrollbar-thumb:hover {
+      .gallery-scroll::-webkit-scrollbar-thumb:hover {
         background-color: #aaa;
+      }
+
+      .zoom {
+        transform: scale(1.5);
       }
     </style>
   </head>
@@ -70,18 +67,22 @@
     <p>這是一個 Midjourney 創作的藝術空間。</p>
     <div class="gallery">
       <div class="gallery-wrapper">
-        <div class="gallery-row">
-          <img src="images/CAT.jpg">
-          <img src="images/CAT-2.jpg">
-          <img src="images/CAT-3.jpg">
+        <div class="gallery-scroll">
+          <div class="gallery-row">
+            <img src="images/CAT.jpg">
+            <img src="images/CAT-2.jpg">
+            <img src="images/CAT-3.jpg">
+          </div>
         </div>
-        <div class="gallery-row">
-          <img src="images/GIRL.jpg">
-          <img src="images/GIRL-2.jpg">
-          <img src="images/GIRL-4.jpg">
-          <img src="images/GIRL-3.jpg">
-          <img src="images/GIRL-5.jpg">
-          <img src="images/GIRL-6.jpg">
+        <div class="gallery-scroll">
+          <div class="gallery-row">
+            <img src="images/GIRL.jpg">
+            <img src="images/GIRL-2.jpg">
+            <img src="images/GIRL-4.jpg">
+            <img src="images/GIRL-3.jpg">
+            <img src="images/GIRL-5.jpg">
+            <img src="images/GIRL-6.jpg">
+          </div>
         </div>
       </div>
     </div>
