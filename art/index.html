@@ -130,6 +130,33 @@
 .gallery-row .next {
   right: 0;
 }
+      <div class="parent">
+  <img src="your-image-source" class="image" />
+  <div class="scroll-btn-wrapper">
+    <button class="scroll-btn left"></button>
+    <button class="scroll-btn right"></button>
+  </div>
+</div>
+
+.parent {
+  position: relative;
+  /* add other styles as needed */
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* add other styles as needed */
+}
+
+.scroll-btn-wrapper {
+  position: fixed;
+  width: 100%;
+  /* add other styles as needed */
+}
+
+/* button styles omitted for brevity */
    </style>
   </head>
   <body>
