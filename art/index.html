@@ -30,76 +30,66 @@
         flex-wrap: wrap;
         scrollbar-width: none;
       }
+      
       .gallery-row {
-  position: relative; /* 新增 */
-}
-
-.gallery-row .scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background-color: rgba(0,0,0,0.3);
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  z-index: 1;
-}
-
-.gallery-row .scroll-btn:hover {
-  background-color: rgba(0,0,0,0.5);
-}
-
-.gallery-row .scroll-btn.left {
-  left: 0;
-  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
-  background-size: cover;
-}
-
-.gallery-row .scroll-btn.right {
-  right: 0;
-  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
-  background-size: cover;
-}
-
-.gallery-row .scroll-btn.disabled {
-  opacity: 0.3;
-  cursor: pointer;
-  pointer-events: auto;
-}
-
-/* 修改 img 的 margin-left 和 margin-right */
-.gallery-row img {
-  width: calc(33.33% - 10px);
-  border: 1px solid #ccc;
-  transition: all 0.3s ease-in-out;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-}
-      .gallery-row {
+        position: relative;
         display: flex;
-        justify-content: flex-start; /* 修改成 flex-start */
-        overflow-x: scroll; /* 新增滾動條 */
-        overflow-y: hidden; /* 刪除 y 方向的滾動條 */
+        justify-content: flex-start;
+        overflow-x: scroll;
+        overflow-y: hidden;
         margin-bottom: 20px;
         width: 100%;
         padding-right: 20px;
         box-sizing: border-box;
       }
 
-      .gallery-row:first-of-type { /* 只選取第一行 */
-        margin-bottom: 0; /* 刪除 margin-bottom */
+      .gallery-row:first-of-type {
+        margin-bottom: 0;
       }
 
       .gallery-row img {
         width: calc(33.33% - 10px);
         border: 1px solid #ccc;
         transition: all 0.3s ease-in-out;
-        margin-right: 20px; /* 修改成 margin-right，與第一行相同 */
+        margin-left: 5px;
+        margin-right: 5px;
         margin-bottom: 20px;
+      }
+
+      .gallery-row .scroll-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0,0,0,0.3);
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        z-index: 1;
+      }
+
+      .gallery-row .scroll-btn:hover {
+        background-color: rgba(0,0,0,0.5);
+      }
+
+      .gallery-row .scroll-btn.left {
+        left: -70px; /* 移到圖片之外 */
+        background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
+        background-size: cover;
+      }
+
+      .gallery-row .scroll-btn.right {
+        right: -70px; /* 移到圖片之外 */
+        background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
+        background-size: cover;
+      }
+
+      .gallery-row .scroll-btn.disabled {
+        opacity: 0.3;
+        cursor: pointer;
+        pointer-events: auto;
       }
 
       .zoom {
@@ -157,8 +147,9 @@ var scrollButtons = document.querySelectorAll(".scroll-btn");
 // 綁定每個按鈕的點擊事件
 scrollButtons.forEach(function(button) {
   button.addEventListener("click", function(event) {
-    // 禁止默认事件
+    // 防止按鈕滾動頁面
     event.preventDefault();
+
     // 獲取該按鈕所在的行
     var row = this.parentNode;
     // 獲取行內的所有圖片
@@ -201,10 +192,8 @@ scrollButtons.forEach(function(button) {
       });
       this.classList.add("disabled");
     } else {
-      // 计算每张图片的滚动距离，只滚动图片而不滚动按钮
-      var distance = scrollDistance > 0 ? imageWidth * (images.length - 1) : -imageWidth * (images.length - 1);
       row.scrollTo({
-        left: scrollPosition + distance,
+        left: newScrollPosition,
         behavior: "smooth"
       });
       // 否則啟用所有按鈕
