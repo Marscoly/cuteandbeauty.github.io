@@ -30,35 +30,19 @@
         flex-wrap: wrap;
         scrollbar-width: none;
       }
-      
       .gallery-row {
+        position: relative;
         display: flex;
         justify-content: flex-start;
         overflow-x: scroll;
         overflow-y: hidden;
         margin-bottom: 20px;
         width: 100%;
-        padding-right: 70px;
-        position: relative; /* 新增 */
-        align-items: center; /* 新增 */
+        padding-right: 20px;
+        box-sizing: border-box;
       }
-
-      /* 修改 img 的 margin-left 和 margin-right */
-      .gallery-row img {
-        width: calc(33.33% - 10px);
-        border: 1px solid #ccc;
-        transition: all 0.3s ease-in-out;
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-bottom: 20px;
-      }
-
-      .gallery-row:first-of-type {
-        margin-bottom: 0;
-      }
-
-      /* 新增左右兩側的按鈕 */
-      .gallery-row .scroll-btn {
+      
+      .scroll-btn {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -71,36 +55,55 @@
         transition: all 0.3s ease-in-out;
         z-index: 1;
       }
-
-      .gallery-row .scroll-btn:hover {
+      
+      .scroll-btn:hover {
         background-color: rgba(0,0,0,0.5);
       }
-
-      .gallery-row .scroll-btn.left {
+      
+      .scroll-btn.left {
         left: 0;
         background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
         background-size: cover;
       }
-
-      .gallery-row .scroll-btn.right {
+      
+      .scroll-btn.right {
         right: 0;
         background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
         background-size: cover;
       }
-
-      .gallery-row .scroll-btn.disabled {
+      
+      .scroll-btn.disabled {
         opacity: 0.3;
         cursor: not-allowed;
       }
-
-      /* 修正滾動條的樣式 */
+      
+      .gallery-row img {
+        width: calc(33.33% - 10px);
+        border: 1px solid #ccc;
+        transition: all 0.3s ease-in-out;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 20px;
+      }
+      
+      .gallery-row:first-of-type {
+        margin-bottom: 0;
+      }
+      
+      .gallery-row:last-of-type {
+        padding-right: 0;
+      }
+      
+      .gallery-row:not(:first-of-type) {
+        margin-left: -5px;
+      }
+      
+      .gallery-row:hover .scroll-btn {
+        display: block;
+      }
+      
       ::-webkit-scrollbar {
         width: 0;
-      }
-
-      /* 新增圖片縮放效果 */
-      .zoom {
-        transform: scale(1.5);
       }
     </style>
   </head>
