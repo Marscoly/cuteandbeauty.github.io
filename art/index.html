@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-      <head>
+    <head>
     <meta charset="UTF-8">
     <title>Cats & Ladies</title>
     <style>
@@ -31,6 +31,7 @@
         scrollbar-width: none;
       }
       .gallery-row {
+        position: relative;
         display: flex;
         justify-content: flex-start;
         overflow-x: scroll;
@@ -41,8 +42,8 @@
         box-sizing: border-box;
       }
 
-      .gallery-row:first-of-type { /* 只選取第一行 */
-        margin-bottom: 0; /* 刪除 margin-bottom */
+      .gallery-row:first-of-type {
+        margin-bottom: 0;
       }
 
       .gallery-row img {
@@ -53,35 +54,7 @@
         margin-right: 5px;
         margin-bottom: 20px;
       }
-      .gallery-row::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 50px;
-  z-index: 1;
-}
-.scroll-button.right {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
 
-.scroll-button.left {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-      .gallery-row::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 50px;
-  z-index: 1;
-}
       .gallery-row:last-of-type {
         margin-bottom: 0;
       }
@@ -104,19 +77,11 @@
       }
 
       .scroll-button.right {
-        margin-left: auto;
+        right: 0;
       }
 
-      .gallery-row-container {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-      }
-
-      .scroll-button-container {
-        display: flex;
-        position: relative;
-        top: -50px;
+      .scroll-button.left {
+        left: 0;
       }
 
       .zoom {
