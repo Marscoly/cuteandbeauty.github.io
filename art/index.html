@@ -43,10 +43,12 @@
   margin-bottom: 20px;
 }
       .gallery-row {
+        position: sticky;
+        top: 0;
         display: flex;
-        justify-content: flex-start; /* 修改成 flex-start */
-        overflow-x: scroll; /* 新增滾動條 */
-        overflow-y: hidden; /* 刪除 y 方向的滾動條 */
+        justify-content: flex-start;
+        overflow-x: scroll;
+        overflow-y: hidden;
         margin-bottom: 20px;
         width: 100%;
         padding-right: 20px;
@@ -76,18 +78,19 @@
 }
 
 /* Style the scroll buttons */
-.scroll-button {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-size: 2em;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  z-index: 1;
-}
+      .scroll-button {
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 2em;
+        /* remove the position: absolute rule */
+        margin-top: -50px;
+        position: sticky;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        z-index: 1;
+      }
 
 .scroll-button.right {
   right: 0;
