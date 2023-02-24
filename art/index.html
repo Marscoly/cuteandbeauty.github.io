@@ -152,20 +152,21 @@
         });
       }
  // 獲取元素
-var leftBtn = document.querySelector("scroll-btn left");
-var rightBtn = document.querySelector("scroll-btn right");
-var galleryRow = document.querySelector("gallery-row");
+var leftBtn = document.querySelector(".left");
+var rightBtn = document.querySelector(".right");
+var galleryRow = document.querySelector(".gallery-row");
+
 // 設置按鈕點擊事件
 leftBtn.addEventListener('click', () => {
-  gallery-row.scrollBy({
-    left: -gallery-row.offsetWidth,
+  galleryRow.scrollBy({
+    left: -galleryRow.offsetWidth,
     behavior: 'smooth'
   });
 });
 
 rightBtn.addEventListener('click', () => {
-  gallery-row.scrollBy({
-    left: gallery-row.offsetWidth,
+  galleryRow.scrollBy({
+    left: galleryRow.offsetWidth,
     behavior: 'smooth'
   });
 });
