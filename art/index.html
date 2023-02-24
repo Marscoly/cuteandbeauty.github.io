@@ -53,7 +53,35 @@
         margin-right: 5px;
         margin-bottom: 20px;
       }
+      .gallery-row::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50px;
+  z-index: 1;
+}
+.scroll-button.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
+.scroll-button.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+      .gallery-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50px;
+  z-index: 1;
+}
       .gallery-row:last-of-type {
         margin-bottom: 0;
       }
