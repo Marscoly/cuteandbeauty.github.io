@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+      <head>
     <meta charset="UTF-8">
     <title>Cats & Ladies</title>
     <style>
@@ -31,7 +31,6 @@
         scrollbar-width: none;
       }
       .gallery-row {
-        position: relative;
         display: flex;
         justify-content: flex-start;
         overflow-x: scroll;
@@ -42,8 +41,8 @@
         box-sizing: border-box;
       }
 
-      .gallery-row:first-of-type {
-        margin-bottom: 0;
+      .gallery-row:first-of-type { /* 只選取第一行 */
+        margin-bottom: 0; /* 刪除 margin-bottom */
       }
 
       .gallery-row img {
@@ -77,11 +76,19 @@
       }
 
       .scroll-button.right {
-        right: 0;
+        margin-left: auto;
       }
 
-      .scroll-button.left {
-        left: 0;
+      .gallery-row-container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      .scroll-button-container {
+        display: flex;
+        position: relative;
+        top: -50px;
       }
 
       .zoom {
