@@ -151,53 +151,37 @@
           this.classList.remove("zoom");
         });
       }
-      var scrollButtons = document.querySelectorAll(".scroll-btn");
+     var galleryRows = document.getElementsByClassName("gallery-row");
+for (var i = 0; i < galleryRows.length; i++) {
+  var galleryRow = galleryRows[i];
+  var scrollBtnLeft = galleryRow.querySelector(".scroll-btn.left");
+  var scrollBtnRight = galleryRow.querySelector(".scroll-btn.right");
+  var scrollDistance = 200;
 
-scrollButtons.forEach(function(button) {
-  button.addEventListener("click", function() {
-    var row = this.parentNode;
-    var images = row.querySelectorAll("img");
-    var imageWidth = images[0].offsetWidth + parseInt(getComputedStyle(images[0]).marginRight);
-    var scrollPosition = row.scrollLeft;
-    var scrollDistance = imageWidth;
-    if (this.classList.contains("left")) {
-      scrollDistance = -scrollDistance;
-    } else {
-      scrollDistance = scrollDistance;
-    }
-    var newScrollPosition = scrollPosition + scrollDistance;
-    var scrollLeft = 0;
-    var scrollRight = row.scrollWidth - row.clientWidth;
-    if (newScrollPosition <= scrollLeft) {
-      row.scrollTo({
-        left: scrollLeft,
-        behavior: "smooth"
-      });
-      this.classList.add("disabled");
-    } else if (newScrollPosition >= scrollRight) {
-      row.scrollTo({
-        left: scrollRight,
-        behavior: "smooth"
-      });
-      this.classList.add("disabled");
-    } else {
-      row.scrollTo({
-        left: newScrollPosition,
-        behavior: "smooth"
-      });
-      scrollButtons.forEach(function(button) {
-        button.classList.remove("disabled");
-      });
-      var rowRect = row.getBoundingClientRect();
-      var rowLeft = rowRect.left;
-      images.forEach(function(image) {
-        var oldLeft = parseInt(image.style.left) || 0;
-        var newLeft = oldLeft - scrollDistance;
-        image.style.left = (newLeft - rowLeft) + 'px';
-      });
-    }
+  scrollBtnLeft.addEventListener("click", function() {
+    galleryRow.scrollLeft -= scrollDistance;
+    updateScrollButtons();
   });
-});
+
+  scrollBtnRight.addEventListener("click", function() {
+    galleryRow.scrollLeft += scrollDistance;
+    updateScrollButtons();
+  });
+
+  function updateScrollButtons() {
+    if (galleryRow.scrollLeft === 0) {
+      scrollBtnLeft.classList.add("disabled");
+    } else {
+      scrollBtnLeft.classList.remove("disabled");
+    }
+
+    if (galleryRow.scrollLeft + galleryRow.clientWidth === galleryRow.scrollWidth) {
+      scrollBtnRight.classList.add("disabled");
+    } else {
+      scrollBtnRight.classList.remove("disabled");
+    }
+  }
+}
     </script>
   </body>
 </html>
