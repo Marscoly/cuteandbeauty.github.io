@@ -12,103 +12,93 @@
         font-family: Arial, sans-serif;
         font-size: 20px;
         color: #FFA500;
-      }
-      
-      h1 {
-        text-align: center;
-        font-family: Georgia, serif;
-        font-size: 36px;
-        font-weight: bold;
-        color: lightyellow;
-      }
-      
-      .gallery-wrapper {
-        width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        scrollbar-width: none;
-      }
-      .gallery-row {
-  position: relative; /* 新增 */
-}
+      }  
+h1 {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: lightyellow;
+  }
+  
+  .gallery-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    scrollbar-width: none;
+  }
 
-.gallery-row .scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background-color: rgba(0,0,0,0.3);
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  z-index: 1;
-}
+  .gallery-row {
+    position: relative; /* 新增 */
+    display: flex;
+    justify-content: flex-start; /* 修改成 flex-start */
+    overflow-x: scroll; /* 新增滾動條 */
+    overflow-y: hidden; /* 刪除 y 方向的滾動條 */
+    margin-bottom: 20px;
+    width: 100%;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
 
-.gallery-row .scroll-btn:hover {
-  background-color: rgba(0,0,0,0.5);
-}
+  .gallery-row:first-of-type { /* 只選取第一行 */
+    margin-bottom: 0; /* 刪除 margin-bottom */
+  }
 
-.gallery-row .scroll-btn.left {
-  left: 0;
-  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
-  background-size: cover;
-}
+  .gallery-row img {
+    width: calc(33.33% - 10px);
+    border: 1px solid #ccc;
+    transition: all 0.3s ease-in-out;
+    margin-left: 5px; /* 修改成 margin-left，與右邊相同 */
+    margin-right: 5px;
+    margin-bottom: 20px;
+  }
 
-.gallery-row .scroll-btn.right {
-  right: 0;
-  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
-  background-size: cover;
-}
+  .gallery-row .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0,0,0,0.3);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+  }
 
-.gallery-row .scroll-btn.disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
+  .gallery-row .scroll-btn:hover {
+    background-color: rgba(0,0,0,0.5);
+  }
 
-/* 修改 img 的 margin-left 和 margin-right */
-.gallery-row img {
-  width: calc(33.33% - 10px);
-  border: 1px solid #ccc;
-  transition: all 0.3s ease-in-out;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-}
-      .gallery-row {
-        display: flex;
-        justify-content: flex-start; /* 修改成 flex-start */
-        overflow-x: scroll; /* 新增滾動條 */
-        overflow-y: hidden; /* 刪除 y 方向的滾動條 */
-        margin-bottom: 20px;
-        width: 100%;
-        padding-right: 20px;
-        box-sizing: border-box;
-      }
+  .gallery-row .scroll-btn.left {
+    left: 0;
+    background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
+    background-size: cover;
+  }
 
-      .gallery-row:first-of-type { /* 只選取第一行 */
-        margin-bottom: 0; /* 刪除 margin-bottom */
-      }
+  .gallery-row .scroll-btn.right {
+    right: 0;
+    background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
+    background-size: cover;
+  }
 
-      .gallery-row img {
-        width: calc(33.33% - 10px);
-        border: 1px solid #ccc;
-        transition: all 0.3s ease-in-out;
-        margin-right: 20px; /* 修改成 margin-right，與第一行相同 */
-        margin-bottom: 20px;
-      }
+  .gallery-row .scroll-btn.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
 
-      .zoom {
-        transform: scale(1.5);
-      }
+  .zoom {
+    transform: scale(1.5);
+    z-index: 2; /* 新增 */
+  }
 
-      ::-webkit-scrollbar {
-        width: 0;
-      }
-    </style>
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+</style>
   </head>
   <body>
     <h1>Cats & Ladies</h1>
