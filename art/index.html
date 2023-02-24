@@ -33,7 +33,31 @@
       .gallery-row {
   position: relative; /* 新增 */
 }
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0,0,0,0.3);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  z-index: 1; /* 新增 */
+}
 
+.scroll-btn.left {
+  left: 0;
+  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
+  background-size: cover;
+}
+
+.scroll-btn.right {
+  right: 0;
+  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
+  background-size: cover;
+}
 .gallery-row .scroll-btn {
   position: relative;
   top: 50%;
