@@ -61,10 +61,41 @@
         width: calc(33.33% - 10px);
         border: 1px solid #ccc;
         transition: all 0.3s ease-in-out;
-        margin-right: 20px; /* 修改成 margin-right，與第一行相同 */
-        margin-bottom: 20px;
-      }
+         margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+}
+      .gallery-row:last-of-type {
+  margin-bottom: 0;
+}
 
+/* Add disabled styles for the scroll buttons */
+.scroll-button.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Style the scroll buttons */
+.scroll-button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+}
+
+.scroll-button.right {
+  right: 0;
+}
+
+.scroll-button.left {
+  left: 0;
+}
       .zoom {
         transform: scale(1.5);
       }
@@ -108,33 +139,60 @@
           this.classList.remove("zoom");
         });
       }
-      var galleries = document.querySelectorAll(".gallery-row");
-galleries.forEach(function(gallery) {
-  var galleryWidth = gallery.offsetWidth;
-  var scrollDistance = gallery.scrollWidth - galleryWidth;
-  var images = gallery.querySelectorAll("img");
+      var galleryRows = document.querySelectorAll('.gallery-row');
+galleryRows.forEach(function (row) {
+  var scrollLeft = row.scrollLeft;
+  var scrollWidth = row.scrollWidth;
 
-  gallery.addEventListener("scroll", function() {
-    if (gallery.scrollLeft == scrollDistance) {
-      gallery.scrollLeft = 0;
-    } else if (gallery.scrollLeft == 0) {
-      gallery.scrollLeft = scrollDistance;
+  // Create left and right scroll buttons
+  var leftButton = document.createElement('button');
+  var rightButton = document.createElement('button');
+
+  leftButton.innerHTML = '&#9664;'; // left arrow
+  rightButton.innerHTML = '&#9654;'; // right arrow
+
+  leftButton.classList.add('scroll-button', 'left');
+  rightButton.classList.add('scroll-button', 'right');
+
+  // Check scroll position on scroll event
+  row.addEventListener('scroll', function () {
+    var currentScroll = row.scrollLeft;
+    var totalWidth = 0;
+    row.querySelectorAll('img').forEach(function (img) {
+      totalWidth += img.offsetWidth;
+    });
+
+    if (currentScroll <= 0) {
+      leftButton.classList.add('disabled');
+    } else {
+      leftButton.classList.remove('disabled');
+    }
+
+    if (currentScroll + row.offsetWidth >= totalWidth) {
+      rightButton.classList.add('disabled');
+    } else {
+      rightButton.classList.remove('disabled');
     }
   });
 
-  var scrolling = setInterval(function() {
-    gallery.scrollLeft += 1;
-  }, 50);
-
-  gallery.addEventListener("mouseover", function() {
-    clearInterval(scrolling);
+  // Scroll left and right on button click
+  leftButton.addEventListener('click', function () {
+    row.scrollBy({
+      left: -200,
+      behavior: 'smooth'
+    });
   });
 
-  gallery.addEventListener("mouseout", function() {
-    scrolling = setInterval(function() {
-      gallery.scrollLeft += 1;
-    }, 50);
+  rightButton.addEventListener('click', function () {
+    row.scrollBy({
+      left: 200,
+      behavior: 'smooth'
+    });
   });
+
+  // Add scroll buttons to the DOM
+  row.parentElement.appendChild(leftButton);
+  row.parentElement.appendChild(rightButton);
 });
     </script>
   </body>
