@@ -157,12 +157,10 @@ var scrollButtons = document.querySelectorAll(".scroll-btn");
 // 綁定每個按鈕的點擊事件
 scrollButtons.forEach(function(button) {
   button.addEventListener("click", function(event) {
-    // 禁止默認事件，防止滾動到頁面頂部或底部
+    // 禁止默认事件
     event.preventDefault();
-
     // 獲取該按鈕所在的行
     var row = this.parentNode;
-
     // 獲取行內的所有圖片
     var images = row.querySelectorAll("img");
 
@@ -203,29 +201,18 @@ scrollButtons.forEach(function(button) {
       });
       this.classList.add("disabled");
     } else {
-      // 否則滾動到新位置
+      // 计算每张图片的滚动距离，只滚动图片而不滚动按钮
+      var distance = scrollDistance > 0 ? imageWidth * (images.length - 1) : -imageWidth * (images.length - 1);
       row.scrollTo({
-        left: newScrollPosition,
+        left: scrollPosition + distance,
         behavior: "smooth"
       });
-      // 禁用當前按鈕
-      this.classList.add("disabled");
-      // 啟用其他按鈕
-      var siblingButtons = Array.from(this.parentNode.children).filter(function(child) {
-        return child !== button;
-      });
-      siblingButtons.forEach(function(siblingButton) {
-        siblingButton.classList.remove("disabled");
+      // 否則啟用所有按鈕
+      scrollButtons.forEach(function(button) {
+        button.classList.remove("disabled");
       });
     }
   });
-});
-      const imageElement = document.getElementById('image');
-const buttonElement = document.getElementById('button');
-
-buttonElement.addEventListener('wheel', (event) => {
-  event.preventDefault(); // 阻止滚动事件的默认行为
-  imageElement.scrollTop += event.deltaY; // 只滚动图片，不滚动按钮
 });
     </script>
   </body>
