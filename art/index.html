@@ -139,12 +139,12 @@
           this.classList.remove("zoom");
         });
       }
-      var galleryRows = document.querySelectorAll('.gallery-row');
+     var galleryRows = document.querySelectorAll('.gallery-row');
 galleryRows.forEach(function (row) {
   var scrollLeft = row.scrollLeft;
   var scrollWidth = row.scrollWidth;
 
-  // Create left and right scroll buttons
+  // Create left and right scroll buttons for this row
   var leftButton = document.createElement('button');
   var rightButton = document.createElement('button');
 
@@ -154,7 +154,7 @@ galleryRows.forEach(function (row) {
   leftButton.classList.add('scroll-button', 'left');
   rightButton.classList.add('scroll-button', 'right');
 
-  // Check scroll position on scroll event
+  // Check scroll position on scroll event for this row
   row.addEventListener('scroll', function () {
     var currentScroll = row.scrollLeft;
     var totalWidth = 0;
@@ -175,7 +175,7 @@ galleryRows.forEach(function (row) {
     }
   });
 
-  // Scroll left and right on button click
+  // Scroll left and right on button click for this row
   leftButton.addEventListener('click', function () {
     row.scrollBy({
       left: -200,
@@ -190,9 +190,9 @@ galleryRows.forEach(function (row) {
     });
   });
 
-  // Add scroll buttons to the DOM
-  row.parentElement.appendChild(leftButton);
-  row.parentElement.appendChild(rightButton);
+  // Add scroll buttons to this row
+  row.appendChild(leftButton);
+  row.appendChild(rightButton);
 });
     </script>
   </body>
