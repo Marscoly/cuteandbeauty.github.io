@@ -32,7 +32,6 @@
       }
       .gallery-row {
   position: relative; /* 新增 */
-  --scroll-btn-offset: 20px; /* 定義按鈕的寬度 */
 }
 
 .gallery-row .scroll-btn {
@@ -55,14 +54,12 @@
 
 .gallery-row .scroll-btn.left {
   left: 0;
-  transform: translateX(calc(-100% + var(--scroll-btn-offset)));
   background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
   background-size: cover;
 }
 
 .gallery-row .scroll-btn.right {
   right: 0;
-  transform: translateX(calc(100% - var(--scroll-btn-offset)));
   background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
   background-size: cover;
 }
