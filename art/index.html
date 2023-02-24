@@ -151,67 +151,57 @@
       </div>
     </div>
     <script>
-      var scrollButtons = document.querySelectorAll(".scroll-btn");
+// 獲取所有滾動按鈕
+var scrollButtons = document.querySelectorAll(".scroll-btn");
 
-      // 綁定每個按鈕的點擊事件
+// 綁定每個按鈕的點擊事件
+scrollButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    // 獲取該按鈕所在的行
+    var row = this.parentNode;
+
+    // 獲取行內的所有圖片
+    var images = row.querySelectorAll("img");
+
+    // 獲取每個圖片的寬度和 margin-right 值
+    var imageWidth = images[0].offsetWidth + parseInt(getComputedStyle(images[0]).marginRight);
+
+    // 獲取當前滾動條的位置
+    var scrollPosition = row.scrollLeft;
+
+    // 計算每次滾動的距離（一次滾動一張圖片的距離）
+    var scrollDistance = imageWidth;
+
+    // 根據按鈕的不同類型計算出不同的滾動方向和距離
+    if (this.classList.contains("left")) {
+      // 向左滾動
+      scrollDistance = -scrollDistance;
+    } else {
+      // 向右滾動
+      scrollDistance = scrollDistance;
+    }
+
+    // 計算滾動後的位置
+    var newScrollPosition = scrollPosition + scrollDistance;
+
+    // 如果已經滾動到了最左邊或最右邊，則禁用相應的按鈕
+    var scrollLeft = 0;
+    var scrollRight = row.scrollWidth - row.clientWidth;
+    if (newScrollPosition <= scrollLeft) {
+      row.scrollLeft = scrollLeft;
+      this.classList.add("disabled");
+    } else if (newScrollPosition >= scrollRight) {
+      row.scrollLeft = scrollRight;
+      this.classList.add("disabled");
+    } else {
+      row.scrollLeft = newScrollPosition;
+      // 否則啟用所有按鈕
       scrollButtons.forEach(function(button) {
-        button.addEventListener("click", function() {
-          // 獲取該按鈕所在的行
-          var row = this.parentNode.nextElementSibling;
-          
-          // 獲取行內的所有圖片
-          var images = row.querySelectorAll("img");
-          
-          // 獲取每個圖片的寬度和 margin-right 值
-          var imageWidth = images[0].offsetWidth + parseInt(getComputedStyle(images[0]).marginRight);
-          
-          // 獲取當前滾動條的位置
-          var scrollPosition = row.scrollLeft;
-          
-          // 計算每次滾動的距離（一次滾動一張圖片的距離）
-          var scrollDistance = imageWidth;
-          
-          // 根據按鈕的不同類型計算出不同的滾動方向和距離
-          if (this.classList.contains("left")) {
-            // 向左滾動
-            scrollDistance = -scrollDistance;
-          } else {
-            // 向右滾動
-            scrollDistance = scrollDistance;
-          }
-          
-          // 計算滾動後的位置
-          var newScrollPosition = scrollPosition + scrollDistance;
-          
-          // 如果已經滾動到了最左邊或最右邊，則禁用相應的按鈕
-          var scrollLeft = 0;
-          var scrollRight = row.scrollWidth - row.clientWidth;
-          if (newScrollPosition <= scrollLeft) {
-            row.scrollTo({
-              left: scrollLeft,
-              behavior: "smooth"
-            });
-            this.classList.add("disabled");
-          } else if
-} else if (newScrollPosition >= scrollRight) {
-            row.scrollTo({
-              left: scrollRight,
-              behavior: "smooth"
-            });
-            this.classList.add("disabled");
-          } else {
-            row.scrollTo({
-              left: newScrollPosition,
-              behavior: "smooth"
-            });
-            // 否則啟用所有按鈕
-            scrollButtons.forEach(function(button) {
-              button.classList.remove("disabled");
-            });
-          }
-        });
+        button.classList.remove("disabled");
       });
-
+    }
+  });
+});
       var images = document.getElementsByTagName("img");
       for (var i = 0; i < images.length; i++) {
         images[i].addEventListener("mouseover", function() {
