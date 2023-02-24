@@ -151,14 +151,20 @@
           this.classList.remove("zoom");
         });
       }
- // 設置按鈕點擊事件
-scroll-btn left.addEventListener('click', () => {
+ // 獲取元素
+const galleryRow = document.querySelector('.gallery-row');
+const leftBtn = galleryRow.querySelector('.scroll-btn.left');
+const rightBtn = galleryRow.querySelector('.scroll-btn.right');
+
+// 設置按鈕點擊事件
+leftBtn.addEventListener('click', () => {
   galleryRow.scrollBy({
     left: -galleryRow.offsetWidth,
     behavior: 'smooth'
   });
 });
-scroll-btn right.addEventListener('click', () => {
+
+rightBtn.addEventListener('click', () => {
   galleryRow.scrollBy({
     left: galleryRow.offsetWidth,
     behavior: 'smooth'
