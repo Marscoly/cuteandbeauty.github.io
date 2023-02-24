@@ -108,6 +108,34 @@
           this.classList.remove("zoom");
         });
       }
+      var galleries = document.querySelectorAll(".gallery-row");
+galleries.forEach(function(gallery) {
+  var galleryWidth = gallery.offsetWidth;
+  var scrollDistance = gallery.scrollWidth - galleryWidth;
+  var images = gallery.querySelectorAll("img");
+
+  gallery.addEventListener("scroll", function() {
+    if (gallery.scrollLeft == scrollDistance) {
+      gallery.scrollLeft = 0;
+    } else if (gallery.scrollLeft == 0) {
+      gallery.scrollLeft = scrollDistance;
+    }
+  });
+
+  var scrolling = setInterval(function() {
+    gallery.scrollLeft += 1;
+  }, 50);
+
+  gallery.addEventListener("mouseover", function() {
+    clearInterval(scrolling);
+  });
+
+  gallery.addEventListener("mouseout", function() {
+    scrolling = setInterval(function() {
+      gallery.scrollLeft += 1;
+    }, 50);
+  });
+});
     </script>
   </body>
 </html>
