@@ -21,50 +21,7 @@
         font-weight: bold;
         color: lightyellow;
       }
-      .scroll-btn-wrapper {
-        position: fixed;
-        width: 100%;
-        z-index: 2; /* 設定較高的 z-index */
-      }
-
-      .scroll-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 50px;
-        height: 50px;
-        background-color: rgba(0,0,0,0.3);
-        border: none;
-        outline: none;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        z-index: 1;
-      }
-
-      .scroll-btn:hover {
-        background-color: rgba(0,0,0,0.5);
-      }
-
-      .scroll-btn.left {
-        left: 0;
-        background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
-        background-size: cover;
-      }
-
-      .scroll-btn.right {
-        right: 0;
-        background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
-        background-size: cover;
-      }
-
-      .scroll-btn.disabled {
-        opacity: 0.3;
-        cursor: not-allowed;
-      }
-
-      ::-webkit-scrollbar {
-        width: 0;
-      }
+      
       .gallery-wrapper {
         width: 100%;
         max-width: 800px;
@@ -73,135 +30,123 @@
         flex-wrap: wrap;
         scrollbar-width: none;
       }
-      
       .gallery-row {
-        display: absolute;
-        justify-content: flex-start;
-        overflow-x: scroll;
-        overflow-y: hidden;
+  position: relative; /* 新增 */
+}
+
+.gallery-row .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0,0,0,0.3);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.gallery-row .scroll-btn:hover {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.gallery-row .scroll-btn.left {
+  left: 0;
+  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
+  background-size: cover;
+}
+
+.gallery-row .scroll-btn.right {
+  right: 0;
+  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
+  background-size: cover;
+}
+
+.gallery-row .scroll-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* 修改 img 的 margin-left 和 margin-right */
+.gallery-row img {
+  width: calc(33.33% - 10px);
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in-out;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+}
+      .gallery-row {
+        display: flex;
+        justify-content: flex-start; /* 修改成 flex-start */
+        overflow-x: scroll; /* 新增滾動條 */
+        overflow-y: hidden; /* 刪除 y 方向的滾動條 */
         margin-bottom: 20px;
         width: 100%;
         padding-right: 20px;
         box-sizing: border-box;
       }
 
-      .gallery-row:first-of-type {
-        margin-bottom: 0;
+      .gallery-row:first-of-type { /* 只選取第一行 */
+        margin-bottom: 0; /* 刪除 margin-bottom */
       }
 
       .gallery-row img {
         width: calc(33.33% - 10px);
         border: 1px solid #ccc;
         transition: all 0.3s ease-in-out;
-        margin-right: 20px;
+        margin-right: 20px; /* 修改成 margin-right，與第一行相同 */
         margin-bottom: 20px;
       }
 
       .zoom {
         transform: scale(1.5);
       }
-/* Add a wrapper around each row of images */
-.gallery-row {
-  position: absolute;
-}
-/* Style the previous and next buttons */
-.gallery-row button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  border: none;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  opacity: 0.5;
-}
 
-/* Style the previous button */
-.gallery-row .prev {
-  left: 0;
-}
-
-/* Style the next button */
-.gallery-row .next {
-  right: 0;
-}
-   </style>
+      ::-webkit-scrollbar {
+        width: 0;
+      }
+    </style>
   </head>
   <body>
     <h1>Cats & Ladies</h1>
     <p>這是一個 Midjourney 創作的藝術空間。</p>
     <div class="gallery">
-  <div class="gallery-wrapper">
-    <div class="gallery-row">
-      <img src="images/CAT.jpg">
-      <img src="images/CAT-2.jpg">
-      <img src="images/CAT-3.jpg">
-      <button class="scroll-btn right"></button>
+      <div class="gallery-wrapper">
+        <div class="gallery-row">
+          <img src="images/CAT.jpg">
+          <img src="images/CAT-2.jpg">
+          <img src="images/CAT-3.jpg">
+          <button class="scroll-btn right"></button>
+        </div>
+        <div class="gallery-row">
+          <img src="images/GIRL.jpg">
+          <img src="images/GIRL-2.jpg">
+          <img src="images/GIRL-4.jpg">
+          <img src="images/GIRL-4.jpg">
+          <button class="scroll-btn right"></button>
+        </div>
+        <div class="gallery-row">
+          <img src="images/GIRL-3.jpg">
+          <img src="images/GIRL-5.jpg">
+          <img src="images/GIRL-6.jpg">
+          <img src="images/GIRL-4.jpg">
+          <button class="scroll-btn right"></button>
+        </div>
+      </div>
     </div>
-    <div class="gallery-row">
-      <img src="images/GIRL.jpg">
-      <img src="images/GIRL-2.jpg">
-      <img src="images/GIRL-4.jpg">
-      <img src="images/GIRL-4.jpg">
-      <button class="scroll-btn right"></button>
-    </div>
-    <div class="gallery-row">
-      <img src="images/GIRL-3.jpg">
-      <img src="images/GIRL-5.jpg">
-      <img src="images/GIRL-6.jpg">
-      <img src="images/GIRL-4.jpg">
-      <button class="scroll-btn right"></button>
-    </div>
-  </div>
-</div>
-<script>
-  var images = document.getElementsByTagName("img");
-  for (var i = 0; i < images.length; i++) {
-    images[i].addEventListener("mouseover", function() {
-      this.classList.add("zoom");
-    });
-    images[i].addEventListener("mouseout", function() {
-      this.classList.remove("zoom");
-    });
-  }
-var scrollBtns = document.getElementsByClassName("scroll-btn");
-for (var i = 0; i < scrollBtns.length; i++) {
-scrollBtns[i].addEventListener("click", function() {
-var row = this.parentNode;
-var rowWidth = row.offsetWidth;
-var rowScrollWidth = row.scrollWidth;
-var rowScrollLeft = row.scrollLeft;
-var imgWidth = row.querySelector("img").offsetWidth;
-    if (this.classList.contains("right")) {
-    rowScrollLeft += imgWidth * 3; // 每次移動 3 張圖片的寬度
-  } else {
-    rowScrollLeft -= imgWidth * 3;
-  }
-  
-  if (rowScrollLeft <= 0) {
-    rowScrollLeft = 0;
-    this.classList.add("disabled");
-  } else {
-    this.classList.remove("disabled");
-  }
-  
-  if (rowScrollLeft + rowWidth >= rowScrollWidth) {
-    rowScrollLeft = rowScrollWidth - rowWidth;
-    this.classList.add("disabled");
-  } else {
-    this.classList.remove("disabled");
-  }
-  
-  row.scrollTo({
-    left: rowScrollLeft,
-    behavior: "smooth"
-  });
-});
-}
-</script>
-</body>
+    <script>
+      var images = document.getElementsByTagName("img");
+      for (var i = 0; i < images.length; i++) {
+        images[i].addEventListener("mouseover", function() {
+          this.classList.add("zoom");
+        });
+        images[i].addEventListener("mouseout", function() {
+          this.classList.remove("zoom");
+        });
+      }
+    </script>
+  </body>
 </html>
