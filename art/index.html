@@ -168,14 +168,13 @@ scrollButtons.forEach(function(button) {
           this.classList.remove("zoom");
         });
       }
- // 獲取所有滾動按鈕
-var scrollButtons = document.getElementsByClassName("scroll-btn");
+ var scrollButtons = document.querySelectorAll(".scroll-btn");
 
 // 綁定每個按鈕的點擊事件
 scrollButtons.forEach(function(button) {
-button.addEventListener("click", function() {
-// 獲取該按鈕所在的行
-var row = this.parentNode;
+  button.addEventListener("click", function() {
+    // 獲取該按鈕所在的行
+    var row = this.parentNode.nextElementSibling;
   // 獲取行內的所有圖片
 var images = row.querySelectorAll("img");
 
@@ -225,8 +224,6 @@ if (newScrollPosition <= scrollLeft) {
     button.classList.remove("disabled");
   });
 }
-});
-});
     </script>
   </body>
 </html>
