@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <meta charset="UTF-8">
     <title>Cats & Ladies</title>
     <style>
@@ -31,20 +31,7 @@
         scrollbar-width: none;
       }
       .gallery-row {
-  position: relative; /* 新增 */
-}
-/* 修改 img 的 margin-left 和 margin-right */
-.gallery-row img {
-  width: calc(33.33% - 10px);
-  border: 1px solid #ccc;
-  transition: all 0.3s ease-in-out;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-}
-      .gallery-row {
-        position: sticky;
-        top: 0;
+        position: relative;
         display: flex;
         justify-content: flex-start;
         overflow-x: scroll;
@@ -55,50 +42,48 @@
         box-sizing: border-box;
       }
 
-      .gallery-row:first-of-type { /* 只選取第一行 */
-        margin-bottom: 0; /* 刪除 margin-bottom */
+      .gallery-row:first-of-type {
+        margin-bottom: 0;
       }
 
       .gallery-row img {
         width: calc(33.33% - 10px);
         border: 1px solid #ccc;
         transition: all 0.3s ease-in-out;
-         margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-}
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 20px;
+      }
+
       .gallery-row:last-of-type {
-  margin-bottom: 0;
-}
+        margin-bottom: 0;
+      }
 
-/* Add disabled styles for the scroll buttons */
-.scroll-button.disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
+      /* Add disabled styles for the scroll buttons */
+      .scroll-button.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
 
-/* Style the scroll buttons */
+      /* Style the scroll buttons */
       .scroll-button {
         background-color: transparent;
         border: none;
         color: #fff;
         font-size: 2em;
-        /* remove the position: absolute rule */
-        margin-top: -50px;
-        position: sticky;
-        top: 0;
         width: 50px;
         height: 50px;
         z-index: 1;
       }
 
-.scroll-button.right {
-  right: 0;
-}
+      .scroll-button.right {
+        right: 0;
+      }
 
-.scroll-button.left {
-  left: 0;
-}
+      .scroll-button.left {
+        left: 0;
+      }
+
       .zoom {
         transform: scale(1.5);
       }
