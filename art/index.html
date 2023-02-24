@@ -220,6 +220,13 @@ scrollButtons.forEach(function(button) {
     }
   });
 });
+      const imageElement = document.getElementById('image');
+const buttonElement = document.getElementById('button');
+
+buttonElement.addEventListener('wheel', (event) => {
+  event.preventDefault(); // 阻止滚动事件的默认行为
+  imageElement.scrollTop += event.deltaY; // 只滚动图片，不滚动按钮
+});
     </script>
   </body>
 </html>
