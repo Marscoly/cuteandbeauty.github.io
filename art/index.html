@@ -156,10 +156,15 @@ var scrollButtons = document.querySelectorAll(".scroll-btn");
 
 // 綁定每個按鈕的點擊事件
 scrollButtons.forEach(function(button) {
-button.addEventListener("click", function() {
+button.addEventListener("click", function(event) {
+// 判断点击的元素是否是图片
+if (event.target.nodeName.toLowerCase() === 'img') {
+return; // 如果是图片则不进行任何操作
+}
+
 // 獲取該按鈕所在的行
 var row = this.parentNode;
-  // 獲取行內的所有圖片
+// 獲取行內的所有圖片
 var images = row.querySelectorAll("img");
 
 // 獲取每個圖片的寬度和 margin-right 值
@@ -173,11 +178,11 @@ var scrollDistance = imageWidth;
 
 // 根據按鈕的不同類型計算出不同的滾動方向和距離
 if (this.classList.contains("left")) {
-  // 向左滾動
-  scrollDistance = -scrollDistance;
+// 向左滾動
+scrollDistance = -scrollDistance;
 } else {
-  // 向右滾動
-  scrollDistance = scrollDistance;
+// 向右滾動
+scrollDistance = scrollDistance;
 }
 
 // 計算滾動後的位置
@@ -187,26 +192,26 @@ var newScrollPosition = scrollPosition + scrollDistance;
 var scrollLeft = 0;
 var scrollRight = row.scrollWidth - row.clientWidth;
 if (newScrollPosition <= scrollLeft) {
-  row.scrollTo({
-    left: scrollLeft,
-    behavior: "smooth"
-  });
-  this.classList.add("disabled");
+row.scrollTo({
+left: scrollLeft,
+behavior: "smooth"
+});
+this.classList.add("disabled");
 } else if (newScrollPosition >= scrollRight) {
-  row.scrollTo({
-    left: scrollRight,
-    behavior: "smooth"
-  });
-  this.classList.add("disabled");
+row.scrollTo({
+left: scrollRight,
+behavior: "smooth"
+});
+this.classList.add("disabled");
 } else {
-  row.scrollTo({
-    left: newScrollPosition,
-    behavior: "smooth"
-  });
-  // 否則啟用所有按鈕
-  scrollButtons.forEach(function(button) {
-    button.classList.remove("disabled");
-  });
+row.scrollTo({
+left: newScrollPosition,
+behavior: "smooth"
+});
+// 否則啟用所有按鈕
+scrollButtons.forEach(function(button) {
+button.classList.remove("disabled");
+});
 }
 });
 });
