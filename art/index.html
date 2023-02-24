@@ -152,8 +152,9 @@
         });
       }
  // 獲取元素
-var leftBtn = gallery-row.getElementsByTagName("btn.left");
-var rightBtn = gallery-row.getElementsByTagName("btn.right");;
+var leftBtn = document.querySelector("scroll-btn left");
+var rightBtn = document.querySelector("scroll-btn right");
+var galleryRow = document.querySelector("gallery-row");
 // 設置按鈕點擊事件
 leftBtn.addEventListener('click', () => {
   gallery-row.scrollBy({
