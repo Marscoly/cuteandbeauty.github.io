@@ -141,6 +141,7 @@ h1 {
       }
      var galleryRowContainers = document.querySelectorAll('.gallery-row-container');
 galleryRowContainers.forEach(function (container) {
+  var row = container.querySelector('.gallery-row');
   var scrollLeft = row.scrollLeft;
   var scrollWidth = row.scrollWidth;
 
