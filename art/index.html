@@ -1,140 +1,148 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <meta charset="UTF-8">
     <title>Cats & Ladies</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Pacifico">
     <style>
       /* 設定網頁背景圖片 */
       body {
         background-image: url("images/backgroung-3.jpg");
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
         font-family: Arial, sans-serif;
         font-size: 20px;
         color: #FFA500;
       }
-      
-      h1 {
-        text-align: center;
-        font-family: Georgia, serif;
-        font-size: 36px;
-        font-weight: bold;
-        color: lightyellow;
-      }
-      
+h1 {
+  text-align: center;
+  font-family: 'Pacifico', serif;
+  font-size: 38px;
+  font-weight: bold;
+  color: lightyellow;
+}
+
       .gallery-wrapper {
         width: 100%;
         max-width: 800px;
-        margin: 0 auto;
+        margin:  auto;
         display: flex;
         flex-wrap: wrap;
         scrollbar-width: none;
       }
       .gallery-row {
-  position: relative; /* 新增 */
-}
-
-.gallery-row .scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background-color: rgba(0,0,0,0.3);
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  z-index: 1;
-}
-
-.gallery-row .scroll-btn:hover {
-  background-color: rgba(0,0,0,0.5);
-}
-
-.gallery-row .scroll-btn.left {
-  left: 0;
-  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
-  background-size: cover;
-}
-
-.gallery-row .scroll-btn.right {
-  right: 0;
-  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
-  background-size: cover;
-}
-
-.gallery-row .scroll-btn.disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-/* 修改 img 的 margin-left 和 margin-right */
-.gallery-row img {
-  width: calc(33.33% - 10px);
-  border: 1px solid #ccc;
-  transition: all 0.3s ease-in-out;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-}
-      .gallery-row {
+        position: relative;
         display: flex;
-        justify-content: flex-start; /* 修改成 flex-start */
-        overflow-x: scroll; /* 新增滾動條 */
-        overflow-y: hidden; /* 刪除 y 方向的滾動條 */
-        margin-bottom: 20px;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        margin-bottom: 20px; 
         width: 100%;
         padding-right: 20px;
         box-sizing: border-box;
       }
 
-      .gallery-row:first-of-type { /* 只選取第一行 */
-        margin-bottom: 0; /* 刪除 margin-bottom */
+      .gallery-row:first-of-type {
+        margin-bottom: 0;
       }
 
       .gallery-row img {
         width: calc(33.33% - 10px);
         border: 1px solid #ccc;
         transition: all 0.3s ease-in-out;
-        margin-right: 20px; /* 修改成 margin-right，與第一行相同 */
-        margin-bottom: 20px;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
       }
 
-      .zoom {
-        transform: scale(1.5);
+      .gallery-row:last-of-type {
+        margin-bottom: 0;
+        margin-top: 0;
       }
 
+      /* Add disabled styles for the scroll buttons */
+      .scroll-button.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      /* Style the scroll buttons */
+      .scroll-button {
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 2em;
+        width: 50px;
+        height: 50px;
+        z-index: 1;
+      }
+
+      .scroll-button.right {
+        right: 100px;
+      }
+
+      .scroll-button.left {
+        left: 100px;
+      }
+           .gallery-row-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+           .zoom {
+        transform: scale(1.3);
+      }
       ::-webkit-scrollbar {
         width: 0;
       }
+       .footer {
+    position: relative;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer p {
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    max-width: 80%;
+  }
     </style>
   </head>
   <body>
     <h1>Cats & Ladies</h1>
-    <p>這是一個 Midjourney 創作的藝術空間。</p>
+    <p></p>
     <div class="gallery">
       <div class="gallery-wrapper">
+        <div class="gallery-row-container">
         <div class="gallery-row">
           <img src="images/CAT.jpg">
           <img src="images/CAT-2.jpg">
           <img src="images/CAT-3.jpg">
-          <button class="scroll-btn right"></button>
+          <img src="images/GIRL-8.jpg">
+          <img src="images/GIRL-9.jpg">
+          <img src="images/GIRL-10.jpg">
         </div>
+  </div>
+        <div class="gallery-row-container">
         <div class="gallery-row">
           <img src="images/GIRL.jpg">
           <img src="images/GIRL-2.jpg">
           <img src="images/GIRL-4.jpg">
-          <img src="images/GIRL-4.jpg">
-          <button class="scroll-btn right"></button>
-        </div>
-        <div class="gallery-row">
           <img src="images/GIRL-3.jpg">
           <img src="images/GIRL-5.jpg">
           <img src="images/GIRL-6.jpg">
-          <img src="images/GIRL-4.jpg">
-          <button class="scroll-btn right"></button>
+          <img src="images/GIRL-7.jpg">
         </div>
+       </div>
       </div>
     </div>
     <script>
@@ -147,6 +155,66 @@
           this.classList.remove("zoom");
         });
       }
+     var galleryRows = document.querySelectorAll('.gallery-row');
+galleryRows.forEach(function (row) {
+  var scrollLeft = row.scrollLeft;
+  var scrollWidth = row.scrollWidth;
+
+  // Create left and right scroll buttons
+  var leftButton = document.createElement('button');
+  var rightButton = document.createElement('button');
+
+  leftButton.innerHTML = '&#9664;'; // left arrow
+  rightButton.innerHTML = '&#9654;'; // right arrow
+
+  leftButton.classList.add('scroll-button', 'left');
+  rightButton.classList.add('scroll-button', 'right');
+
+  // Check scroll position on scroll event
+  row.addEventListener('scroll', function () {
+    var currentScroll = row.scrollLeft;
+    var totalWidth = 0;
+    row.querySelectorAll('img').forEach(function (img) {
+      totalWidth += img.offsetWidth;
+    });
+
+    if (currentScroll <= 0) {
+      leftButton.classList.add('disabled');
+    } else {
+      leftButton.classList.remove('disabled');
+    }
+
+    if (currentScroll + row.offsetWidth >= totalWidth) {
+      rightButton.classList.add('disabled');
+    } else {
+      rightButton.classList.remove('disabled');
+    }
+  });
+
+  // Scroll left and right on button click
+  leftButton.addEventListener('click', function () {
+    row.scrollBy({
+      left: -200,
+      behavior: 'smooth'
+    });
+  });
+
+  rightButton.addEventListener('click', function () {
+    row.scrollBy({
+      left: 200,
+      behavior: 'smooth'
+    });
+  });
+
+  // Add scroll buttons to the DOM
+  row.parentElement.appendChild(leftButton);
+  row.parentElement.appendChild(rightButton);
+});
     </script>
+   <div class="footer"></div>
+     <p>
+    This website is built on the free platform GitHub with the help of users and ChatGPT. All images are generated using the AI drawing tool Midjourney.
+  </p>
+</div>
   </body>
 </html>
