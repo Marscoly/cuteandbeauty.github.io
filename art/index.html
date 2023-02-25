@@ -70,7 +70,7 @@ h1 {
 
       /* Style the scroll buttons */
       .scroll-button {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: transparent;
         border: none;
         color: #fff;
         font-size: 2em;
@@ -97,6 +97,13 @@ h1 {
       ::-webkit-scrollbar {
         width: 0;
       }
+      .footer {
+  position: relative;
+  bottom: -100px;
+  height: 100px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
     </style>
   </head>
   <body>
@@ -193,5 +200,6 @@ galleryRows.forEach(function (row) {
   row.parentElement.appendChild(rightButton);
 });
     </script>
+   <div class="footer"></div>
   </body>
 </html>
