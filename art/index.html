@@ -29,136 +29,115 @@
         display: flex;
         flex-wrap: wrap;
         scrollbar-width: none;
-        position: relative; /* 新增 */
       }
-      .scroll-btn {
-        position: absolute; /* 新增 */
-        top: 50%; /* 新增 */
-        transform: translateY(-50%); /* 新增 */
-        width: 50px;
-        height: 50px;
-        background-color: rgba(0,0,0,0.3);
-        border: none;
-        outline: none;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        z-index: 1;
-      }
+      .gallery-row {
+  position: relative; /* 新增 */
+}
 
-      .scroll-btn:hover {
-        background-color: rgba(0,0,0,0.5);
-      }
+.gallery-row .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0,0,0,0.3);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
 
-      .scroll-btn.left {
-        left: 0;
-        background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
-        background-size: cover;
-      }
+.gallery-row .scroll-btn:hover {
+  background-color: rgba(0,0,0,0.5);
+}
 
-      .scroll-btn.right {
-        right: 0;
-        background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
-        background-size: cover;
-      }
+.gallery-row .scroll-btn.left {
+  left: 0;
+  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronLeftCircle-512.png");
+  background-size: cover;
+}
 
-      .scroll-btn.disabled {
-        opacity: 0.3;
-        cursor: pointer;
-        pointer-events: auto;
-      }
+.gallery-row .scroll-btn.right {
+  right: 0;
+  background-image: url("https://cdn3.iconfinder.com/data/icons/arrow-circle-1-1/64/ChevronRightCircle-512.png");
+  background-size: cover;
+}
 
-      /* 修改 img 的 margin-left 和 margin-right */
-      .gallery-row img {
-        width: calc(33.33% - 10px);
-        border: 1px solid #ccc;
-        transition: all 0.3s ease-in-out;
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-bottom: 20px;
-      }
+.gallery-row .scroll-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
 
+/* 修改 img 的 margin-left 和 margin-right */
+.gallery-row img {
+  width: calc(33.33% - 10px);
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in-out;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+}
       .gallery-row {
         display: flex;
-        justify-content: flex-start;
-        overflow-x: scroll;
-        overflow-y: hidden;
+        justify-content: flex-start; /* 修改成 flex-start */
+        overflow-x: scroll; /* 新增滾動條 */
+        overflow-y: hidden; /* 刪除 y 方向的滾動條 */
         margin-bottom: 20px;
         width: 100%;
         padding-right: 20px;
         box-sizing: border-box;
       }
 
-      .gallery-row:first-of-type {
-        margin-bottom: 0;
+      .gallery-row:first-of-type { /* 只選取第一行 */
+        margin-bottom: 0; /* 刪除 margin-bottom */
       }
 
       .gallery-row img {
         width: calc(33.33% - 10px);
         border: 1px solid #ccc;
         transition: all 0.3s ease-in-out;
-        margin-right: 20px;
+        margin-right: 20px; /* 修改成 margin-right，與第一行相同 */
         margin-bottom: 20px;
       }
 
       .zoom {
         transform: scale(1.5);
       }
+
       ::-webkit-scrollbar {
         width: 0;
       }
-        .scroll-btn-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
     </style>
   </head>
   <body>
     <h1>Cats & Ladies</h1>
     <p>這是一個 Midjourney 創作的藝術空間。</p>
     <div class="gallery">
-  <div class="gallery-wrapper">
-    <div class="scroll-btn-container">
-      <button class="scroll-btn left"></button>
-      <button class="scroll-btn right"></button>
+      <div class="gallery-wrapper">
+        <div class="gallery-row">
+          <img src="images/CAT.jpg">
+          <img src="images/CAT-2.jpg">
+          <img src="images/CAT-3.jpg">
+          <button class="scroll-btn right"></button>
+        </div>
+        <div class="gallery-row">
+          <img src="images/GIRL.jpg">
+          <img src="images/GIRL-2.jpg">
+          <img src="images/GIRL-4.jpg">
+          <img src="images/GIRL-4.jpg">
+          <button class="scroll-btn right"></button>
+        </div>
+        <div class="gallery-row">
+          <img src="images/GIRL-3.jpg">
+          <img src="images/GIRL-5.jpg">
+          <img src="images/GIRL-6.jpg">
+          <img src="images/GIRL-4.jpg">
+          <button class="scroll-btn right"></button>
+        </div>
+      </div>
     </div>
-    <div class="gallery-row">
-      <img src="images/CAT.jpg">
-      <img src="images/CAT-2.jpg">
-      <img src="images/CAT-3.jpg">
-    </div>
-    <div class="scroll-btn-container">
-      <button class="scroll-btn left"></button>
-      <button class="scroll-btn right"></button>
-    </div>
-    <div class="gallery-row">
-      <img src="images/GIRL.jpg">
-      <img src="images/GIRL-2.jpg">
-      <img src="images/GIRL-4.jpg">
-      <img src="images/GIRL-4.jpg">
-    </div>
-    <div class="scroll-btn-container">
-      <button class="scroll-btn left"></button>
-      <button class="scroll-btn right"></button>
-    </div>
-    <div class="gallery-row">
-      <img src="images/GIRL-3.jpg">
-      <img src="images/GIRL-5.jpg">
-      <img src="images/GIRL-6.jpg">
-      <img src="images/GIRL-4.jpg">
-    </div>
-  </div>
-</div>
     <script>
-        var scrollButtons = document.querySelectorAll(".scroll-btn");
-scrollButtons.forEach(function(button) {
-  button.addEventListener("click", function() {
-    var container = this.parentNode;
-    var row = container.nextElementSibling;
-    // ...
-  });
-});
       var images = document.getElementsByTagName("img");
       for (var i = 0; i < images.length; i++) {
         images[i].addEventListener("mouseover", function() {
@@ -168,65 +147,6 @@ scrollButtons.forEach(function(button) {
           this.classList.remove("zoom");
         });
       }
- // 獲取所有滾動按鈕
-var scrollButtons = document.querySelectorAll(".scroll-btn");
-
-// 綁定每個按鈕的點擊事件
-scrollButtons.forEach(function(button) {
-button.addEventListener("click", function() {
-// 獲取該按鈕所在的行
-var row = this.parentNode;
-  // 獲取行內的所有圖片
-var images = row.querySelectorAll("img");
-
-// 獲取每個圖片的寬度和 margin-right 值
-var imageWidth = images[0].offsetWidth + parseInt(getComputedStyle(images[0]).marginRight);
-
-// 獲取當前滾動條的位置
-var scrollPosition = row.scrollLeft;
-
-// 計算每次滾動的距離（一次滾動一張圖片的距離）
-var scrollDistance = imageWidth;
-
-// 根據按鈕的不同類型計算出不同的滾動方向和距離
-if (this.classList.contains("left")) {
-  // 向左滾動
-  scrollDistance = -scrollDistance;
-} else {
-  // 向右滾動
-  scrollDistance = scrollDistance;
-}
-
-// 計算滾動後的位置
-var newScrollPosition = scrollPosition + scrollDistance;
-
-// 如果已經滾動到了最左邊或最右邊，則禁用相應的按鈕
-var scrollLeft = 0;
-var scrollRight = row.scrollWidth - row.clientWidth;
-if (newScrollPosition <= scrollLeft) {
-  row.scrollTo({
-    left: scrollLeft,
-    behavior: "smooth"
-  });
-  this.classList.add("disabled");
-} else if (newScrollPosition >= scrollRight) {
-  row.scrollTo({
-    left: scrollRight,
-    behavior: "smooth"
-  });
-  this.classList.add("disabled");
-} else {
-  row.scrollTo({
-    left: newScrollPosition,
-    behavior: "smooth"
-  });
-  // 否則啟用所有按鈕
-  scrollButtons.forEach(function(button) {
-    button.classList.remove("disabled");
-  });
-}
-});
-});
     </script>
   </body>
 </html>
