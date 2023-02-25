@@ -11,6 +11,7 @@
         background-image: url("images/backgroung-3.jpg");
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
         font-family: Arial, sans-serif;
         font-size: 20px;
         color: #FFA500;
@@ -97,6 +98,23 @@ h1 {
       ::-webkit-scrollbar {
         width: 0;
       }
+       .footer {
+    position: relative;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer p {
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    max-width: 80%;
+  }
     </style>
   </head>
   <body>
@@ -193,5 +211,10 @@ galleryRows.forEach(function (row) {
   row.parentElement.appendChild(rightButton);
 });
     </script>
+   <div class="footer"></div>
+     <p>
+    This website is built on the free platform GitHub with the help of users and ChatGPT. All images are generated using the AI drawing tool Midjourney.
+  </p>
+</div>
   </body>
 </html>
