@@ -109,7 +109,6 @@ h1 {
           <img src="images/GIRL-9.jpg">
           <img src="images/GIRL-10.jpg">
         </div>
-        <div class="scroll-buttons">
   <button class="scroll-button left">&#9664;</button>
   <button class="scroll-button right">&#9654;</button>
   </div>
@@ -123,7 +122,6 @@ h1 {
           <img src="images/GIRL-6.jpg">
           <img src="images/GIRL-7.jpg">
         </div>
-       <div class="scroll-buttons">
       <button class="scroll-button left">&#9664;</button>
   <button class="scroll-button right">&#9654;</button>
        </div>
@@ -139,9 +137,8 @@ h1 {
           this.classList.remove("zoom");
         });
       }
-     var galleryRowContainers = document.querySelectorAll('.gallery-row-container');
-galleryRowContainers.forEach(function (container) {
-  var row = container.querySelector('.gallery-row');
+     var galleryRows = document.querySelectorAll('.gallery-row');
+galleryRows.forEach(function (row) {
   var scrollLeft = row.scrollLeft;
   var scrollWidth = row.scrollWidth;
 
