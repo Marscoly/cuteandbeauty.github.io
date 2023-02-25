@@ -26,7 +26,7 @@ h1 {
       .gallery-wrapper {
         width: 100%;
         max-width: 800px;
-        margin: 0 auto;
+        margin:  auto;
         display: flex;
         flex-wrap: wrap;
         scrollbar-width: none;
@@ -100,6 +100,7 @@ h1 {
     <p></p>
     <div class="gallery">
       <div class="gallery-wrapper">
+        <div class="gallery-row-container">
         <div class="gallery-row">
           <img src="images/CAT.jpg">
           <img src="images/CAT-2.jpg">
@@ -108,6 +109,10 @@ h1 {
           <img src="images/GIRL-9.jpg">
           <img src="images/GIRL-10.jpg">
         </div>
+  <button class="scroll-button left">&#9664;</button>
+  <button class="scroll-button right">&#9654;</button>
+  </div>
+        <div class="gallery-row-container">
         <div class="gallery-row">
           <img src="images/GIRL.jpg">
           <img src="images/GIRL-2.jpg">
@@ -117,6 +122,9 @@ h1 {
           <img src="images/GIRL-6.jpg">
           <img src="images/GIRL-7.jpg">
         </div>
+      <button class="scroll-button left">&#9664;</button>
+  <button class="scroll-button right">&#9654;</button>
+       </div>
       </div>
     </div>
     <script>
