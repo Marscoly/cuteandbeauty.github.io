@@ -93,18 +93,14 @@
       }
 
       /* Slideshow styles */
-      .gallery-row:nth-of-type(2) {
-  position: relative;
-}
-.slideshow {
-  position: absolute;
-  top: calc(100% + 50px);
-  right: -300px;
-  width: 300px;
-  height: 300px;
-  overflow: hidden;
-}
-
+      .slideshow {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100%;
+        overflow: hidden;
+      }
 
       .slideshow-images {
         position: relative;
@@ -143,16 +139,17 @@
           <img src="images/GIRL-4.jpg">
           <img src="images/GIRL-4.jpg">
         </div>
-       <div class="gallery-row">
-       <div class="image-container">
-       <img src="images/GIRL-3.jpg">
-       <img src="images/GIRL-5.jpg">
-       <img src="images/GIRL-6.jpg">
-       <img src="images/GIRL-4.jpg">
-       </div>
-       <div class="slideshow">
-       <div class="slideshow-images"></div>
-       </div>      
+        <div class="gallery-row">
+          <img src="images/GIRL-3.jpg">
+          <img src="images/GIRL-5.jpg">
+          <img src="images/GIRL-6.jpg">
+          <img src="images/GIRL-4.jpg">
+        </div>
+      </div>
+    </div>
+  <div class="slideshow">
+    <div class="slideshow-images"></div>
+  </div>      
     <script>
       var images = document.getElementsByTagName("img");
       for (var i = 0; i < images.length; i++) {
