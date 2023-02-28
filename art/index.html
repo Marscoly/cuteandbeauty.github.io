@@ -90,7 +90,7 @@ h1 {
       }
            .gallery-row-container {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
       }
            .zoom {
@@ -115,58 +115,63 @@ h1 {
     text-align: center;
     max-width: 80%;
   }
-   .header {
-  position: relative;
-}
+  .header {
+      position: relative;
+    }
 
-.dropdown-container {
-  position: absolute;
-  top: 50px;
-  right: 20px;
-}
-/* 下拉式選單樣式 */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+    .dropdown-container {
+      position: absolute;
+      top: 50px;
+      right: 20px;
+    }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  min-width: 160px;
-  z-index: 1;
-}
+    /* 下拉式選單樣式 */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
 
-.dropdown-content a {
-  color: #fff;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.5);
+      min-width: 160px;
+      z-index: 1;
+    }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+    .dropdown-content a {
+      color: #fff;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
 
-.dropbtn {
-  background-color: transparent;
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropbtn {
+      background-color: transparent;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
     </style>
   </head>
   <body>
-     <div class="dropdown">
-  <button class="dropbtn">choose a topic...</button>
-  <div class="dropdown-content">
-    <a href="#">Cats</a>
-    <a href="#">Girls</a>
-    <a href="#">WoW</a>
+    <div class="header">
+    <div class="dropdown-container">
+      <div class="dropdown">
+        <button class="dropbtn">選擇畫廊</button>
+        <div class="dropdown-content">
+          <a href="#">畫廊1</a>
+          <a href="#">畫廊2</a>
+          <a href="#">畫廊3</a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
     <h1>Cats & Ladies</h1>
     <p></p>
     <div class="gallery">
