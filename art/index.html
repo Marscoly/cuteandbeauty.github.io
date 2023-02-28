@@ -3,6 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <title>Cats & Ladies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-1dOJvHYzRkU6sw5UJrQELdAFrjzwtm0oqPdl8odB13j0vHbdZnKwCq3LZ+BxSxxS/U4RkwzePPYNjKbmwd2MAA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Pacifico">
     <style>
@@ -115,9 +116,72 @@ h1 {
     text-align: center;
     max-width: 80%;
   }
+  .dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* 按鈕樣式 */
+.dropbtn {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* 選項樣式 */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* 小箭頭 */
+.dropbtn:after {
+  content: "\f078";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  padding-left: 10px;
+}
+
+.dropdown:hover .dropbtn:after {
+  content: "\f077";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  padding-left: 10px;
+}
     </style>
   </head>
   <body>
+    <div class="dropdown">
+  <button class="dropbtn">選擇畫廊</button>
+  <div class="dropdown-content">
+    <a href="#" onclick="changeGallery(1)">畫廊1</a>
+    <a href="#" onclick="changeGallery(2)">畫廊2</a>
+    <a href="#" onclick="changeGallery(3)">畫廊3</a>
+  </div>
+</div>
     <h1>Cats & Ladies</h1>
     <p></p>
     <div class="gallery">
@@ -210,6 +274,40 @@ galleryRows.forEach(function (row) {
   row.parentElement.appendChild(leftButton);
   row.parentElement.appendChild(rightButton);
 });
+  function changeGallery(index) {
+  var galleryRows = document.querySelectorAll('.gallery-row');
+  var images;
+
+  // Remove all images from all gallery rows
+  galleryRows.forEach(function (row) {
+    while (row.firstChild) {
+      row.removeChild(row.firstChild);
+    }
+  });
+
+  // Add images to selected gallery row
+  switch (index) {
+    case 1:
+      images = ['images/CAT.jpg', 'images/CAT-2.jpg', 'images/CAT-3.jpg', 'images/GIRL-8.jpg', 'images/GIRL-9.jpg', 'images/GIRL-10.jpg'];
+      break;
+    case 2:
+      images = ['images/GIRL.jpg', 'images/GIRL-2.jpg', 'images/GIRL-4.jpg', 'images/GIRL-3.jpg', 'images/GIRL-5.jpg', 'images/GIRL-6.jpg', 'images/GIRL-7.jpg'];
+      break;
+    case 3:
+      images = ['images/GIRL-8.jpg', 'images/GIRL-9.jpg', 'images/GIRL-10.jpg', 'images/GIRL-10.jpg', 'images/GIRL-10.jpg', 'images/GIRL-10.jpg'];
+      break;
+  }
+
+  var galleryRow = galleryRows[index - 1];
+  images.forEach(function (imageSrc) {
+    var img = document.createElement('img');
+    img.src = imageSrc;
+    galleryRow.appendChild(img);
+  });
+}
+    window.onload = function () {
+  changeGallery(1);
+};
     </script>
    <div class="footer">
   <p>
