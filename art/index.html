@@ -18,59 +18,59 @@
         overflow-y: scroll;
         min-width: 1500x;
       }
-h1 {
-  text-align: center;
-  font-family: 'Pacifico', serif;
-  font-size: 38px;
-  font-weight: bold;
-  color: lightyellow;
-  margin-top: 50px;
-}
+   h1 {
+      text-align: center;
+      font-family: 'Pacifico', serif;
+      font-size: 38px;
+      font-weight: bold;
+      color: lightyellow;
+      margin-top: 50px;
+      }
 
-      .gallery-wrapper {
-        width: 100%;
-        max-width: 800px;
-        margin:  auto;
-        display: flex;
-        flex-wrap: wrap;
-        scrollbar-width: none;
-      }
-      .gallery-row {
-        position: relative;
-        display: flex;
-        justify-content: flex-start;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        margin-bottom: 20px; 
-        width: 100%;
-        padding-right: 20px;
-        box-sizing: border-box;
-      }
+     .gallery-wrapper {
+       width: 100%;
+       max-width: 800px;
+       margin:  auto;
+       display: flex;
+       flex-wrap: wrap;
+       scrollbar-width: none;
+       }
+     .gallery-row {
+       position: relative;
+       display: flex;
+       justify-content: flex-start;
+       overflow-x: scroll;
+       overflow-y: hidden;
+       margin-bottom: 20px; 
+       width: 100%;
+       padding-right: 20px;
+       box-sizing: border-box;
+       }
 
       .gallery-row:first-of-type {
         margin-bottom: 0;
-      }
+       }
 
       .gallery-row img {
-        width: calc(33.33% - 10px);
-        border: 1px solid #ccc;
-        transition: all 0.3s ease-in-out;
-        margin-left: 15px;
-        margin-right: 15px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-      }
+       width: calc(33.33% - 10px);
+       border: 1px solid #ccc;
+       transition: all 0.3s ease-in-out;
+       margin-left: 15px;
+       margin-right: 15px;
+       margin-top: 15px;
+       margin-bottom: 15px;
+       }
 
-      .gallery-row:last-of-type {
-        margin-bottom: 0;
-        margin-top: 0;
-      }
+     .gallery-row:last-of-type {
+       margin-bottom: 0;
+       margin-top: 0;
+       }
 
       /* Add disabled styles for the scroll buttons */
       .scroll-button.disabled {
-        opacity: 0.5;
-        pointer-events: none;
-      }
+       opacity: 0.5;
+       pointer-events: none;
+       }
 
       /* Style the scroll buttons */
       .scroll-button {
@@ -81,48 +81,47 @@ h1 {
         width: 50px;
         height: 50px;
         z-index: 1;
-      }
+        }
 
       .scroll-button.right {
         right: 100px;
-      }
-
+        }
       .scroll-button.left {
         left: 100px;
-      }
-           .gallery-row-container {
+       }
+      .gallery-row-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-      }
-           .zoom {
+       }
+      .zoom {
         transform: scale(1.3);
       }
       ::-webkit-scrollbar {
         width: 5px;
       }
-       .footer {
-    position: relative;
-    bottom: 0;
-    height: 100;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    .footer {
+     position: relative;
+     bottom: 0;
+     height: 100;
+     width: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     }
   .footer p {
     font-size: 14px;
     color: #fff;
     text-align: center;
     max-width: 80%;
-  }
+   }
     /* 下拉式選單樣式 */
-    .dropdown {
-      position: absolute;
-      top: 50px;
-      left: 100px;
-      display: inline-block;
+   .dropdown {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    display: inline-block;
     }
 
     .dropdown-content {
@@ -131,27 +130,24 @@ h1 {
       background-color: rgba(0, 0, 0, 0.5);
       min-width: 160px;
       z-index: 1;
-    }
-
+      }
     .dropdown-content a {
       color: #fff;
       padding: 12px 16px;
       text-decoration: none;
       display: block;
-    }
-
+      }
     .dropdown:hover .dropdown-content {
       display: block;
+      }
+   .dropbtn {
+     background-color: transparent;
+     color: #fff;
+     font-size: 16px;
+     border: none;
+     cursor: pointer;
     }
-
-    .dropbtn {
-      background-color: transparent;
-      color: #fff;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-    }
-    </style>
+  </style>
   </head>
   <body>
     <div class="header">
@@ -166,11 +162,11 @@ h1 {
       </div>
     </div>
   </div>
-    <h1>Cats & Ladies</h1>
-    <p></p>
-    <div class="gallery">
-      <div class="gallery-wrapper">
-        <div class="gallery-row-container">
+  <h1>Cats & Ladies</h1>
+  <p></p>
+  <div class="gallery">
+     <div class="gallery-wrapper">
+       <div class="gallery-row-container">
         <div class="gallery-row">
           <img src="images/CAT.jpg">
           <img src="images/CAT-2.jpg">
@@ -246,14 +242,12 @@ galleryRows.forEach(function (row) {
       behavior: 'smooth'
     });
   });
-
   rightButton.addEventListener('click', function () {
     row.scrollBy({
       left: 200,
       behavior: 'smooth'
     });
   });
-
   // Add scroll buttons to the DOM
   row.parentElement.appendChild(leftButton);
   row.parentElement.appendChild(rightButton);
@@ -263,6 +257,6 @@ galleryRows.forEach(function (row) {
   <p>
     This website is built on the free platform GitHub with the help of users and ChatGPT. All images are generated using the AI drawing tool Midjourney.
   </p>
-</div>
+  </div>
   </body>
 </html>
