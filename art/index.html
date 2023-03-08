@@ -122,7 +122,6 @@
     top: 50px;
     left: 100px;
     display: inline-block;
-    width: 100px;
     }
 
     .dropdown-content {
@@ -131,8 +130,6 @@
       background-color: rgba(0, 0, 0, 0.5);
       min-width: 160px;
       z-index: 1;
-      width: 100%; /* 設定寬度為 100% */
-      left: 0; /* 設定左側對齊 */
       }
     .dropdown-content a {
       color: #fff;
@@ -158,9 +155,9 @@
       <div class="dropdown">
         <button class="dropbtn">Choose a topic...</button>
         <div class="dropdown-content">
-          <a href="#">Cats</a>
-          <a href="#">Girls</a>
-          <a href="#">WoW style</a>
+        <a href="#" data-index="0">Cats</a>
+        <a href="#" data-index="1">Girls</a>
+        <a href="#" data-index="2">World of Warcraft style</a>
         </div>
       </div>
     </div>
@@ -174,20 +171,20 @@
           <img src="images/CAT.jpg">
           <img src="images/CAT-2.jpg">
           <img src="images/CAT-3.jpg">
-          <img src="images/GIRL-8.jpg">
-          <img src="images/GIRL-9.jpg">
-          <img src="images/GIRL-10.jpg">
+          <img src="images/CAT-2.jpg">
+          <img src="images/CAT-2.jpg">
+          <img src="images/CAT-2.jpg">
         </div>
   </div>
         <div class="gallery-row-container">
         <div class="gallery-row">
-          <img src="images/GIRL.jpg">
-          <img src="images/GIRL-2.jpg">
-          <img src="images/GIRL-4.jpg">
-          <img src="images/GIRL-3.jpg">
-          <img src="images/GIRL-5.jpg">
-          <img src="images/GIRL-6.jpg">
-          <img src="images/GIRL-7.jpg">
+          <img src="images/CAT-2.jpg">
+          <img src="images/CAT-2.jpg">
+          <img src="images/CAT-2.jpg">
+          <img src="images/CAT-2.jpg">
+          <img src="images/CAT-2.jpg">
+          <img src="images/CAT-2.jpg">
+          <img src="images/CAT-2.jpg">
         </div>
        </div>
       </div>
@@ -251,15 +248,32 @@ galleryRows.forEach(function (row) {
       behavior: 'smooth'
     });
   });
-  // Add scroll buttons to the DOM
-  row.parentElement.appendChild(leftButton);
-  row.parentElement.appendChild(rightButton);
-});
-    </script>
+       // Add scroll buttons to the DOM
+          row.parentElement.appendChild(leftButton);
+          row.parentElement.appendChild(rightButton);
+   });
+   var imagePaths = [
+   ['images/CAT.jpg', 'images/CAT-2.jpg', 'images/CAT-3.jpg'],
+   ['images/GIRL.jpg', 'images/GIRL-2.jpg', 'images/GIRL-3.jpg'],
+   ['images/topic3-image1.jpg', 'images/topic3-image2.jpg', 'images/topic3-image3.jpg']
+   ];
+
+   var dropdownLinks = document.querySelectorAll('.dropdown-content a');
+   dropdownLinks.forEach(function(link) {
+     link.addEventListener('click', function(event) {
+       event.preventDefault();
+         var index = parseInt(this.getAttribute('data-index'));
+         var images = document.querySelectorAll('.gallery-row img');
+         images.forEach(function(img, imgIndex) {
+         img.setAttribute('src', imagePaths[index][imgIndex]);
+      });
+    });
+   });
+   </script>
    <div class="footer">
-  <p>
+   <p>
     This website is built on the free platform GitHub with the help of users and ChatGPT. All images are generated using the AI drawing tool Midjourney.
-  </p>
+   </p>
   </div>
   </body>
 </html>
