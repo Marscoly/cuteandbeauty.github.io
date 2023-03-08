@@ -263,12 +263,16 @@ galleryRows.forEach(function (row) {
      link.addEventListener('click', function(event) {
        event.preventDefault();
          var index = parseInt(this.getAttribute('data-index'));
-         var images = document.querySelectorAll('.gallery-row img');
-         images.forEach(function(img, imgIndex) {
-         img.setAttribute('src', imagePaths[index][imgIndex]);
-      });
+         // 使用 class name '.gallery-row' 尋找每一排圖片
+         var galleryRows = document.querySelectorAll('.gallery-row');
+         galleryRows.forEach(function(row) {
+         // 取得每一排的圖片
+        var images = row.querySelectorAll('img');
+        // 將每一排的圖片內容替換為指定圖片
+        images.forEach(function(img, imgIndex) {
+        img.setAttribute('src', imagePaths[index][imgIndex]);
+       });
     });
-   });
    </script>
    <div class="footer">
    <p>
