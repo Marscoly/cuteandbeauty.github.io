@@ -17,14 +17,37 @@
         color: #FFA500;
         overflow-y: scroll;
       }
-h1 {
-  text-align: center;
-  font-family: 'Pacifico', serif;
-  font-size: 38px;
-  font-weight: bold;
-  color: lightyellow;
-}
-
+     /* Add dropdown menu styles */
+     .dropdown {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    }
+    .dropdown select {
+    font-size: 18px;
+    padding: 5px;
+    background-color: #FFA500;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    }
+    .dropdown select:focus {
+    outline: none;
+    }
+   <div class="dropdown">
+   <select id="menu" onchange="changeContent()">
+    <option value="default" selected>預設內容</option>
+    <option value="option1">選項1</option>
+    <option value="option2">選項2</option>
+   </select>
+   </div>
+   h1 {
+   text-align: center;
+   font-family: 'Pacifico', serif;
+   font-size: 38px;
+   font-weight: bold;
+   color: lightyellow;
+   }
       .gallery-wrapper {
         width: 100%;
         max-width: 800px;
@@ -189,30 +212,31 @@ galleryRows.forEach(function (row) {
     } else {
       rightButton.classList.remove('disabled');
     }
-  });
-
-  // Scroll left and right on button click
-  leftButton.addEventListener('click', function () {
+    });
+    // Scroll left and right on button click
+    leftButton.addEventListener('click', function () {
     row.scrollBy({
       left: -200,
       behavior: 'smooth'
+     });
     });
-  });
-
-  rightButton.addEventListener('click', function () {
+    rightButton.addEventListener('click', function () {
     row.scrollBy({
       left: 200,
       behavior: 'smooth'
-    });
-  });
-
+     });
+   });
   // Add scroll buttons to the DOM
   row.parentElement.appendChild(leftButton);
   row.parentElement.appendChild(rightButton);
-});
+  });
+ function changeContent() {
+  var selectedOption = document.getElementById("menu").value;
+  // Implement your functionality for changing the content based on the selected option here
+  }
     </script>
    <div class="footer">
-  <p>
+   <p>
     This website is built on the free platform GitHub with the help of users and ChatGPT. All images are generated using the AI drawing tool Midjourney.
   </p>
 </div>
