@@ -150,9 +150,9 @@
           <img src="images/CAT.jpg">
           <img src="images/CAT-2.jpg">
           <img src="images/CAT-3.jpg">
-          <img src="images/GIRL-8.jpg">
-          <img src="images/GIRL-9.jpg">
-          <img src="images/GIRL-10.jpg">
+          <img src="images/GIRL-8.jpg" data-group="option1">
+          <img src="images/GIRL-9.jpg" data-group="option1">
+          <img src="images/GIRL-10.jpg" data-group="option1">
         </div>
   </div>
         <div class="gallery-row-container">
@@ -161,9 +161,9 @@
           <img src="images/GIRL-2.jpg">
           <img src="images/GIRL-4.jpg">
           <img src="images/GIRL-3.jpg">
-          <img src="images/GIRL-5.jpg">
-          <img src="images/GIRL-6.jpg">
-          <img src="images/GIRL-7.jpg">
+          <img src="images/GIRL-5.jpg" data-group="option1">
+          <img src="images/GIRL-6.jpg" data-group="option1">
+          <img src="images/GIRL-7.jpg" data-group="option1">
         </div>
        </div>
       </div>
@@ -230,7 +230,14 @@ row.parentElement.appendChild(rightButton);
 });
 function changeContent() {
 var selectedOption = document.getElementById("menu").value;
-// Implement your functionality for changing the content based on the selected option here
+var images = document.querySelectorAll('.gallery-row img');
+  images.forEach(function (img) {
+    if (selectedOption === 'default' || img.getAttribute('data-group') === selectedOption) {
+      img.style.display = 'inline-block';
+    } else {
+      img.style.display = 'none';
+    }
+  });
 }
 </script>
 
